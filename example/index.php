@@ -1,10 +1,11 @@
 <?php
 
+use Galironfydar\PhpDowntimeChecker\Checker;
+
 require __DIR__.'/../vendor/autoload.php';
 
-$check = new \Galironfydar\PhpDowntimeChecker\Checker();
+$check = new Checker();
 
 $url = 'http://duck.com';
 
-
-var_dump($check->isDown($url));
+echo "Is Down? : " . ($check->isDown($url) ? 'true' : 'false') . "\n";

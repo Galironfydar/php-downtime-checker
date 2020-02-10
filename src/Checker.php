@@ -12,16 +12,16 @@ class Checker implements CheckerInferface
     protected $status;
     protected $body;
 
-    public function __construct($timeout = 30, $follow = true, $url = null)
+    public function __construct($url = null, $timeout = 30, $follow = true)
     {
+        $this->url = $url;
         $this->timeout = $timeout;
         $this->follow = $follow;
-        $this->url = $url;
     }
 
     public function isDown($url)
     {
-        return !$this->check($url)['success'];
+        return ! $this->check($url)['success'];
     }
 
     public function check($url)
